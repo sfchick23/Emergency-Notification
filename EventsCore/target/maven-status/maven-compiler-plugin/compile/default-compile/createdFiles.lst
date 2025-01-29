@@ -1,0 +1,5 @@
+ru\sfchick\eventsCore\Error\RetryableException.class
+ru\sfchick\eventsCore\Error\NonRetryableException.class
+ru\sfchick\eventsCore\Events\EmailSendEvent.class
+ru\sfchick\eventsCore\Events\PersonCreateEvent.class
+ru\sfchick\eventsCore\Events\SmsSendEvent.class

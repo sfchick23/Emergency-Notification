@@ -1,0 +1,5 @@
+D:\project\Emergency notification\EventsCore\src\main\java\ru\sfchick\eventsCore\Error\NonRetryableException.java
+D:\project\Emergency notification\EventsCore\src\main\java\ru\sfchick\eventsCore\Error\RetryableException.java
+D:\project\Emergency notification\EventsCore\src\main\java\ru\sfchick\eventsCore\Events\EmailSendEvent.java
+D:\project\Emergency notification\EventsCore\src\main\java\ru\sfchick\eventsCore\Events\PersonCreateEvent.java
+D:\project\Emergency notification\EventsCore\src\main\java\ru\sfchick\eventsCore\Events\SmsSendEvent.java
