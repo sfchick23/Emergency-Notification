@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Отправка Email сообщения</h1>
+  <form th:action="@{/notify/v2/email}" th:object="${email}" method="post">
+    <div class="form-group">
+      <label for="content">Содержимое Email сообщения:</label>
+      <textarea id="content" th:field="*{content}" class="form-control" rows="4" required></textarea>
+      <div th:if="${#fields.hasErrors('content')}" class="text-danger">
+        <p th:errors="*{content}">Ошибка</p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+  </form>
+</div>
+</body>
+</html>
