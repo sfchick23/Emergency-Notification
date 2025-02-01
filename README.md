@@ -50,9 +50,12 @@ The project consists of the following microservices:
     spring.datasource.username=postgres
     spring.datasource.password=postgres
     ```
-    - Open the file 
-      database-create.txt,
-      create 3 tables according to the plan from the file
+    - Open the file
+      - database-create.txt,
+        create 3 tables according to the plan from the file
+
+      - docker-compose.yaml,
+        start the docker using this file
     
   - Run the application:
     ```bash
