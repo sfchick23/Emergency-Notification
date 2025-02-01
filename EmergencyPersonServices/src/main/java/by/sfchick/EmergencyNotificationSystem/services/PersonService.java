@@ -34,7 +34,7 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    @Cacheable(value = "phoneNumbers", unless = "#result == null")
+    @Cacheable(value = "phoneNumbers", unless = "#result == null or #result.isEmpty()")
     public List<String> findAllPhoneNumbers() {
         return personRepository.findAllPhoneNumbers();
     }
@@ -42,7 +42,7 @@ public class PersonService {
     public Optional<Person> findByNameAndPhone(String name, String phone) {
         return personRepository.findByNameAndPhoneNumber(name, phone);
     }
-    @Cacheable(value = "AllEmails", unless = "#result == null")
+    @Cacheable(value = "AllEmails", unless = "#result == null or #result.isEmpty()")
     public List<String> findAllEmail(){
         return personRepository.findAllEmail();
     }
@@ -66,5 +66,10 @@ public class PersonService {
     @CacheEvict(value = {"phoneNumbers", "AllEmails"},  allEntries = true)
     public Person createPerson(Person person) {
         return personRepository.save(person);
+    }
+
+    @CacheEvict(value = {"phoneNumbers", "AllEmails"},  allEntries = true)
+    public void clearAllCaches(){
+        log.info("Clearing all caches");
     }
 }
