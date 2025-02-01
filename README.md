@@ -64,10 +64,11 @@ The project consists of the following microservices:
      
 ## How It Works
 
-The system operates in two versions: **v1** and **v2**. Both versions provide the same functionality but differ in their implementation:
+The system operates in two versions: v1 and v2. Both versions provide the same functionality but differ in their implementation:
 
-- **v1**: Uses direct communication between services via REST API.
-- **v2**: Uses Apache Kafka for asynchronous message processing, ensuring idempotency and reliable message delivery.
+- v1: Uses direct communication between services via REST API, specifically leveraging RestTemplate for HTTP requests. However, this approach does not guarantee 100% message delivery due to potential network issues, service unavailability, or other transient failures.
+
+- v2: Uses Apache Kafka for asynchronous message processing, ensuring idempotency and reliable message delivery. By sending messages to Kafka topics, the system guarantees that messages will be processed and delivered even in the event of failures, retries, or system restarts.
 
 ### Frontend Microservice Endpoints
 
@@ -78,18 +79,18 @@ The `frontend` microservice exposes the following endpoints for interacting with
 - **GET** `/notify/v1/person` - Displays a form for creating a new user.
 - **POST** `/notify/v1/person` - Submits the form to create a new user.
 - **GET** `/notify/v1/send-sms` - Displays a form for sending an SMS.
-- **POST** `/notify/v1/sms` - Submits the form to send an SMS.
+- **POST** `/notify/v1/sms` - Submits the form to send an SMS. Note: This version uses RestTemplate and does not guarantee 100% message delivery.
 - **GET** `/notify/v1/send-email` - Displays a form for sending an email.
-- **POST** `/notify/v1/email` - Submits the form to send an email.
+- **POST** `/notify/v1/email` - Submits the form to send an email. Note: This version uses RestTemplate and does not guarantee 100% message delivery.
 
 #### Version 2 (v2)
 
 - **GET** `/notify/v2/person` - Displays a form for creating a new user.
 - **POST** `/notify/v2/person` - Submits the form to create a new user.
 - **GET** `/notify/v2/send-sms` - Displays a form for sending an SMS.
-- **POST** `/notify/v2/sms` - Submits the form to send an SMS.
+- **POST** `/notify/v2/sms` - Submits the form to send an SMS. This version sends the message to a Kafka topic, ensuring 100% message delivery.
 - **GET** `/notify/v2/send-email` - Displays a form for sending an email.
-- **POST** `/notify/v2/email` - Submits the form to send an email.
+- **POST** `/notify/v2/email` - Submits the form to send an email. This version sends the message to a Kafka topic, ensuring 100% message delivery.
 
 ### Workflow
 
