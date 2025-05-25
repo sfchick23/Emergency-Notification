@@ -1,6 +1,5 @@
 # Emergency Notification System
 
-
 ## Project Description
 
 This project is a cluster of 4 microservices developed using Spring Boot 3, Apache Kafka, Hibernate, and PostgreSQL. The main goal of the system is to send emergency notifications to users via SMS and email. The project ensures 100% message delivery by utilizing idempotency in Apache Kafka.
