@@ -8,6 +8,11 @@ This project is a cluster of 4 microservices developed using Spring Boot 3, Apac
 
 The project consists of the following microservices:
 
+
+
+
+
+
 1. **Notification Service** - The main service that handles requests for sending notifications.
 2. **SMS Service** - A service responsible for sending SMS messages through a third-party API.
 3. **Email Service** - A service responsible for sending emails through a third-party API.
