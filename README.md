@@ -8,11 +8,6 @@ This project is a cluster of 4 microservices developed using Spring Boot 3, Apac
 
 The project consists of the following microservices:
 
-
-
-
-
-
 1. **Notification Service** - The main service that handles requests for sending notifications.
 2. **SMS Service** - A service responsible for sending SMS messages through a third-party API.
 3. **Email Service** - A service responsible for sending emails through a third-party API.
@@ -74,7 +69,7 @@ The project consists of the following microservices:
 
 The system operates in two versions: v1 and v2. Both versions provide the same functionality but differ in their implementation:
 
-- v1: Uses direct communication between services via REST API, specifically leveraging RestTemplate for HTTP requests. However, this approach does not guarantee 100% message delivery due to potential network issues, service unavailability, or other transient failures.
+- v1: Uses direct communication between services via REST API, specifically leveraging RestTemplate for HTTP requests. However, this approach does not guarantee 100% message delivery due to potential network issues, service unavailability or other transient failures.
 - v2: Uses Apache Kafka for asynchronous message processing, ensuring idempotency and reliable message delivery. By sending messages to Kafka topics, the system guarantees that messages will be processed and delivered even in the event of failures, retries, or system restarts.
 
 ### Frontend Microservice Endpoints
